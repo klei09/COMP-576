@@ -85,6 +85,7 @@ def main():
     # placeholders for input data and input labeles
     x = tf.placeholder(tf.float32, [None, 784], name='x')
     y_ = tf.placeholder(tf.float32, [None, 10], name='y_')
+    x_image = tf.reshape(x, [-1, 28, 28, 1])
 
     # reshape the input image
     tf.reshape(x, [-1, 28, 28, 1])
