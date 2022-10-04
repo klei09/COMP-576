@@ -87,7 +87,7 @@ def main():
     y_ = tf.placeholder(tf.float32, [None, 10], name='y_')
 
     # reshape the input image
-    x_image = tf.reshape(x, [-1, 28, 28, 1]
+    tf.reshape(x, [-1, 28, 28, 1])
 
     # first convolutional layer
     W_conv1 = weight_variable([5, 5, 1, 32])
