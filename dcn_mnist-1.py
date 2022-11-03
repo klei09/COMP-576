@@ -25,7 +25,6 @@ def weight_variable(shape):
     :return: a tensor variable for weights with initial values
     '''
 
-    # IMPLEMENT YOUR WEIGHT_VARIABLE HERE
     initial = tf.truncated_normal(shape, stddev=0.1)
 
     return tf.Variable(initial)
@@ -38,7 +37,6 @@ def bias_variable(shape):
     :return: a tensor variable for biases with initial values
     '''
 
-    # IMPLEMENT YOUR BIAS_VARIABLE HERE
     initial = tf.constant(0.1, shape=shape)
     return tf.Variable(initial)
 
@@ -58,8 +56,6 @@ def conv2d(x, W):
     :return: a tensor of features extracted by the filters, a.k.a. the results after convolution
     '''
 
-    # IMPLEMENT YOUR CONV2D HERE
-
     return tf.nn.conv2d(x, W, strides=[1, 1, 1, 1], padding='SAME')
 
 def max_pool_2x2(x):
@@ -69,7 +65,6 @@ def max_pool_2x2(x):
     :return: the results of maxpooling (max-marginalized + downsampling)
     '''
 
-    # IMPLEMENT YOUR MAX_POOL_2X2 HERE
     return tf.nn.max_pool(x, ksize=[1, 2, 2, 1],
                           strides=[1, 2, 2, 1], padding='SAME')
 
@@ -80,7 +75,7 @@ def main():
 
     start_time = time.time() # start timing
 
-    # FILL IN THE CODE BELOW TO BUILD YOUR NETWORK
+    # BUILD THE NETWORK MODEL
 
     # placeholders for input data and input labeles
     x = tf.placeholder(tf.float32, [None, 784], name='x')
@@ -120,7 +115,7 @@ def main():
 
     y = tf.nn.softmax(tf.matmul(h_fc1_drop, W_fc2) + b_fc2, name='y')
 
-    # FILL IN THE FOLLOWING CODE TO SET UP THE TRAINING
+    # SET UP THE TRAINING
 
     # setup training
     cross_entropy = tf.reduce_mean(-tf.reduce_sum(y_ * tf.log(y), reduction_indices=[1]))
