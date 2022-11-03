@@ -26,8 +26,7 @@ def weight_variable(shape):
     Cout: the number of filters
     :return: a tensor variable for weights with initial values
     '''
-
-    # IMPLEMENT YOUR WEIGHT_VARIABLE HERE
+    
     initial = tf.truncated_normal(shape, stddev=0.01)
     W = tf.Variable(initial)
 
@@ -41,7 +40,6 @@ def bias_variable(shape):
     :return: a tensor variable for biases with initial values
     '''
 
-    # IMPLEMENT YOUR BIAS_VARIABLE HERE
     initial = tf.constant(0.1, shape=shape)
     b = tf.Variable(initial)
 
@@ -63,7 +61,6 @@ def conv2d(x, W):
     :return: a tensor of features extracted by the filters, a.k.a. the results after convolution
     '''
 
-    # IMPLEMENT YOUR CONV2D HERE
     h_conv = tf.nn.conv2d(x, W, strides=[1, 1, 1, 1], padding='SAME')
 
     return h_conv
@@ -75,7 +72,6 @@ def max_pool_2x2(x):
     :return: the results of maxpooling (max-marginalized + downsampling)
     '''
 
-    # IMPLEMENT YOUR MAX_POOL_2X2 HERE
     h_max = tf.nn.max_pool(x, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding='SAME')
 
     return h_max
